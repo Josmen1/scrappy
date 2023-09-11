@@ -14,7 +14,7 @@ def main():
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
     driver = webdriver.Chrome(options=options)
-    driver.get(os.environ.get("TARGET_VARIABLE"))
+    driver.get(os.environ.get("TARGET_URL"))
     # driver.get('https://play.pakakumi.com/')
     # iteration_count = 0
     # max_iterations = 20
@@ -78,13 +78,13 @@ def main():
                 previous_burst = burst
                 burst_change_count += 1
 
-            if burst_change_count >= 30:
-                break
+            # if burst_change_count >= 30:
+            #    break
             time.sleep(3)
 
         except Exception as e:
             print(f"an error occured: {str(e)}")
-    driver.quit()
+        driver.quit()
 
 
 if __name__ == "__main__":
